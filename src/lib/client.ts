@@ -58,7 +58,7 @@ class Client {
     this.endpoint = endpoint
 
     const token =
-      options.endpoint ||
+      options.token ||
       process.env.ARGOCD_TOKEN ||
       loadValueFromEnvFile(envArgoCDFile, 'ARGOCD_TOKEN') ||
       loadValueFromEnvFile(envMoFile, 'ARGOCD_TOKEN') ||
@@ -66,7 +66,6 @@ class Client {
     if (!token)
       throw new Error('❌ ARGOCD_TOKEN is required')
     this.token = token
-    console.log('this.token', this.token)
 
     // --- other options
     this.apiVersion = options.apiVersion || 'v1'
