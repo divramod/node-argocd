@@ -5,5 +5,5 @@ jq '.version |= (. | split(".") | .[2] |= tostring | .[0] + "." + .[1] + "." + (
 git pu "feat(${1}): ${2}" || true
 pnpm build
 export NPM_AUTH_TOKEN=$($HOME/.config/mo/plugs/npm/token-divramod)
-echo "NPM_TOKEN: ${NPM_TOKEN}"
+echo "NPM_AUTH_TOKEN: ${NPM_AUTH_TOKEN}"
 pnpm publish --no-git-checks
