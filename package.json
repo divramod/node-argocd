@@ -1,6 +1,6 @@
 {
   "name": "@divramod/node-argocd",
-  "version": "0.0.25",
+  "version": "0.0.26",
   "description": "A client for the Argo CD API written for Node.js",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
