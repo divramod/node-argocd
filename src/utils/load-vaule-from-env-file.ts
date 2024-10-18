@@ -6,5 +6,8 @@ export const loadValueFromEnvFile = (file: string, value: string): string | unde
     override: true
   }).parsed;
   const env = envs?.[value];
+  console.log('envs', envs)
+  console.log('file', file)
+  console.log('value', value)
   return env;
 };
