@@ -6,5 +6,5 @@ git pu "feat(${1}): ${2}" || true
 pnpm build
 export NPM_TOKEN=$(cat $HOME/.config/mo/plugs/npm/token-divramod)
 echo "NPM_TOKEN: ${NPM_TOKEN}"
-echo -e 'divramod-dev\n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\ndivramod@gmail.com' | npm login -e EMAIL -r REGISTRY
+npm-cli-login -u divramod-dev -e divramod@gmail.com -p ${NPM_TOKEN}
 pnpm publish
