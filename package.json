@@ -1,0 +1,85 @@
+{
+  "name": "divramod/node-argocd",
+  "version": "0.0.1",
+  "description": "A client for the Argo CD API written for Node.js",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.cts",
+  "files": [
+    "dist/**"
+  ],
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "test": "mocha \"**/*.test.ts\" --retries 0",
+    "typecheck": "tsc --noEmit",
+    "lint": "pnpm typecheck && eslint .",
+    "lint:fix": "eslint --fix .",
+    "format:check": "prettier --check .",
+    "format": "prettier --write .",
+    "ci:publish": "changeset publish"
+  },
+  "packageManager": "pnpm@8.15.7",
+  "dependencies": {
+    "p-safe": "^1.0.0",
+    "zod": "^3.23.8",
+    "zod-request": "^0.2.2"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.9",
+    "@ianvs/prettier-plugin-sort-imports": "^4.3.1",
+    "@types/chai": "^5.0.0",
+    "@types/lodash": "^4.17.10",
+    "@types/mocha": "^10.0.9",
+    "@types/node": "^20.16.11",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "chai": "^5.1.1",
+    "dotenv": "^16.4.5",
+    "eslint": "^8.57.1",
+    "lodash": "^4.17.21",
+    "mocha": "^10.7.3",
+    "prettier": "^3.3.3",
+    "terser": "^5.34.1",
+    "tsd": "^0.31.2",
+    "tsup": "^8.3.0",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.2",
+    "undici": "^6.19.8"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "provenance": false
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/divramod/node-argocd.git"
+  },
+  "keywords": [
+    "argocd",
+    "cd",
+    "client",
+    "node"
+  ],
+  "author": "Arvid Petermann <divramod@gmail.com> (https://github.com/divramod)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/divramod/node-argocd/issues"
+  },
+  "homepage": "https://github.com/divramod/node-argocd#readme"
+}
