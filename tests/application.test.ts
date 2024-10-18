@@ -6,7 +6,7 @@ describe('node-argocd/application', () => {
   it('list', async () => {
     const acdc = new Client();
     const test = await acdc.application.list();
-    console.log('test', test.data?.items)
+    console.log('test', test.data?.items);
     expect(test).to.be.true;
   });
 });

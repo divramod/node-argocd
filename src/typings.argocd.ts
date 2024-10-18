@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from 'zod';
 
 // Managed Fields Entry Schema
 const ManagedFieldsEntrySchema = z.object({
@@ -8,7 +8,7 @@ const ManagedFieldsEntrySchema = z.object({
   manager: z.string(),
   operation: z.string(),
   subresource: z.string().optional(),
-  time: z.string(),
+  time: z.string()
 });
 
 // Owner Reference Schema
@@ -18,7 +18,7 @@ const OwnerReferenceSchema = z.object({
   controller: z.boolean().optional(),
   kind: z.string(),
   name: z.string(),
-  uid: z.string(),
+  uid: z.string()
 });
 
 // Source Schema
@@ -32,18 +32,16 @@ const SourceSchema = z.object({
         .object({
           extVars: z.array(z.any()).optional(),
           libs: z.array(z.string()).optional(),
-          tlas: z.array(z.any()).optional(),
+          tlas: z.array(z.any()).optional()
         })
         .optional(),
-      recurse: z.boolean().optional(),
+      recurse: z.boolean().optional()
     })
     .optional(),
   helm: z
     .object({
       apiVersions: z.array(z.string()).optional(),
-      fileParameters: z
-        .array(z.object({ name: z.string(), path: z.string() }))
-        .optional(),
+      fileParameters: z.array(z.object({ name: z.string(), path: z.string() })).optional(),
       ignoreMissingValueFiles: z.boolean().optional(),
       kubeVersion: z.string().optional(),
       namespace: z.string().optional(),
@@ -52,8 +50,8 @@ const SourceSchema = z.object({
           z.object({
             forceString: z.boolean(),
             name: z.string(),
-            value: z.string(),
-          }),
+            value: z.string()
+          })
         )
         .optional(),
       passCredentials: z.boolean().optional(),
@@ -62,7 +60,7 @@ const SourceSchema = z.object({
       valueFiles: z.array(z.string()).optional(),
       values: z.string().optional(),
       valuesObject: z.object({ raw: z.string().optional() }).optional(),
-      version: z.string().optional(),
+      version: z.string().optional()
     })
     .optional(),
   kustomize: z
@@ -90,10 +88,10 @@ const SourceSchema = z.object({
               .object({
                 annotationSelector: z.string().optional(),
                 labelSelector: z.string().optional(),
-                resId: z.any().optional(),
+                resId: z.any().optional()
               })
-              .optional(),
-          }),
+              .optional()
+          })
         )
         .optional(),
       replicas: z
@@ -103,14 +101,14 @@ const SourceSchema = z.object({
               .object({
                 intVal: z.number().optional(),
                 strVal: z.string().optional(),
-                type: z.number().optional(),
+                type: z.number().optional()
               })
               .optional(),
-            name: z.string().optional(),
-          }),
+            name: z.string().optional()
+          })
         )
         .optional(),
-      version: z.string().optional(),
+      version: z.string().optional()
     })
     .optional(),
   path: z.string().optional(),
@@ -120,8 +118,8 @@ const SourceSchema = z.object({
         .array(
           z.object({
             name: z.string().optional(),
-            value: z.string().optional(),
-          }),
+            value: z.string().optional()
+          })
         )
         .optional(),
       name: z.string().optional(),
@@ -131,15 +129,15 @@ const SourceSchema = z.object({
             array: z.array(z.any()).optional(),
             map: z.record(z.any()).optional(),
             name: z.string().optional(),
-            string: z.string().optional(),
-          }),
+            string: z.string().optional()
+          })
         )
-        .optional(),
+        .optional()
     })
     .optional(),
   ref: z.string().optional(),
   repoURL: z.string().optional(),
-  targetRevision: z.string().optional(),
+  targetRevision: z.string().optional()
 });
 
 // Metadata Schema
@@ -158,7 +156,7 @@ const MetadataSchema = z.object({
   ownerReferences: z.array(OwnerReferenceSchema).optional(),
   resourceVersion: z.string(),
   selfLink: z.string().optional(),
-  uid: z.string(),
+  uid: z.string()
 });
 
 // Operation Schema (mostly required but could have optional parts)
@@ -167,7 +165,7 @@ const OperationSchema = z.object({
   initiatedBy: z
     .object({
       automated: z.boolean().optional(),
-      username: z.string().optional(),
+      username: z.string().optional()
     })
     .optional(),
   retry: z
@@ -176,10 +174,10 @@ const OperationSchema = z.object({
         .object({
           duration: z.string().optional(),
           factor: z.number().optional(),
-          maxDuration: z.string().optional(),
+          maxDuration: z.string().optional()
         })
         .optional(),
-      limit: z.number().optional(),
+      limit: z.number().optional()
     })
     .optional(),
   sync: z
@@ -193,8 +191,8 @@ const OperationSchema = z.object({
             group: z.string().optional(),
             kind: z.string().optional(),
             name: z.string().optional(),
-            namespace: z.string().optional(),
-          }),
+            namespace: z.string().optional()
+          })
         )
         .optional(),
       revision: z.string().optional(),
@@ -206,22 +204,22 @@ const OperationSchema = z.object({
         .object({
           apply: z
             .object({
-              force: z.boolean().optional(),
+              force: z.boolean().optional()
             })
             .optional(),
           hook: z
             .object({
               syncStrategyApply: z
                 .object({
-                  force: z.boolean().optional(),
+                  force: z.boolean().optional()
                 })
-                .optional(),
+                .optional()
             })
-            .optional(),
+            .optional()
         })
-        .optional(),
+        .optional()
     })
-    .optional(),
+    .optional()
 });
 
 // Spec Schema
@@ -230,7 +228,7 @@ const SpecSchema = z.object({
     .object({
       name: z.string().optional(),
       namespace: z.string().optional(),
-      server: z.string().optional(),
+      server: z.string().optional()
     })
     .optional(),
   ignoreDifferences: z
@@ -242,15 +240,11 @@ const SpecSchema = z.object({
         kind: z.string().optional(),
         managedFieldsManagers: z.array(z.string()).optional(),
         name: z.string().optional(),
-        namespace: z.string().optional(),
-      }),
+        namespace: z.string().optional()
+      })
     )
     .optional(),
-  info: z
-    .array(
-      z.object({ name: z.string().optional(), value: z.string().optional() }),
-    )
-    .optional(),
+  info: z.array(z.object({ name: z.string().optional(), value: z.string().optional() })).optional(),
   project: z.string().optional(),
   revisionHistoryLimit: z.number().optional(),
   source: SourceSchema.optional(),
@@ -261,13 +255,13 @@ const SpecSchema = z.object({
         .object({
           allowEmpty: z.boolean().optional(),
           prune: z.boolean().optional(),
-          selfHeal: z.boolean().optional(),
+          selfHeal: z.boolean().optional()
         })
         .optional(),
       managedNamespaceMetadata: z
         .object({
           annotations: z.record(z.string()).optional(),
-          labels: z.record(z.string()).optional(),
+          labels: z.record(z.string()).optional()
         })
         .optional(),
       retry: z
@@ -276,15 +270,15 @@ const SpecSchema = z.object({
             .object({
               duration: z.string().optional(),
               factor: z.number().optional(),
-              maxDuration: z.string().optional(),
+              maxDuration: z.string().optional()
             })
             .optional(),
-          limit: z.number().optional(),
+          limit: z.number().optional()
         })
         .optional(),
-      syncOptions: z.array(z.string()).optional(),
+      syncOptions: z.array(z.string()).optional()
     })
-    .optional(),
+    .optional()
 });
 
 // Application Item Schema
@@ -292,7 +286,7 @@ const ApplicationItemSchema = z.object({
   metadata: MetadataSchema.optional(), // Previously assumed required based on context
   operation: OperationSchema.optional(),
   spec: SpecSchema.optional(),
-  status: z.any(), // This remains adaptable based on definitions
+  status: z.any() // This remains adaptable based on definitions
 });
 
 // Applications Response Schema
@@ -302,7 +296,6 @@ export const ApplicationsResponseSchema = z.object({
     continue: z.string().optional(),
     remainingItemCount: z.number().optional(),
     resourceVersion: z.string(),
-    selfLink: z.string().optional(),
-  }),
+    selfLink: z.string().optional()
+  })
 });
-

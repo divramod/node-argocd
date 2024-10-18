@@ -1,6 +1,6 @@
 import { ApiSector } from '@/lib/sector';
-import { generateCommand } from '@/utils/generate-command';
 import { ApplicationsResponseSchema } from '@/typings.argocd';
+import { generateCommand } from '@/utils/generate-command';
 
 /**
  * KV secrets engine - version 1

@@ -25,8 +25,8 @@ export const EngineInfoSchema = z.object({
 
 export const SuccessResponseSchema = z.object({
   metadata: z.object({
-    resourceVersion: z.string(),
-  }),
+    resourceVersion: z.string()
+  })
   // lease_id: z.string(),
   // renewable: z.boolean(),
   // lease_duration: z.number(),

@@ -45,7 +45,7 @@ export function generateCommand<Schema extends RequestSchema, RawResponse extend
           headers: removeUndefined(
             Object.assign(
               {
-                'Authorization': `Bearer ${client.token}`,
+                Authorization: `Bearer ${client.token}`
               },
               opts.headers || {}
             )
