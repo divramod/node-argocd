@@ -3,11 +3,11 @@ name: Release Package
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   release:
-    if: github.repository == 'shahradelahi/node-vault'
+    if: github.repository == 'divramod/node-argocd'
     name: Build & Publish Release
     runs-on: ubuntu-latest
     permissions:
