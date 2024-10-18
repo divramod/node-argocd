@@ -66,6 +66,7 @@ class Client {
     if (!token)
       throw new Error('❌ ARGOCD_TOKEN is required')
     this.token = token
+    console.log('this.token', this.token)
 
     // --- other options
     this.apiVersion = options.apiVersion || 'v1'
