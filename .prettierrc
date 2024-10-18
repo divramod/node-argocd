@@ -1,16 +1,17 @@
 {
   "$schema": "https://json.schemastore.org/prettierrc",
   "useTabs": false,
-  "singleQuote": true,
   "trailingComma": "none",
   "endOfLine": "lf",
-  "printWidth": 100,
+  "printWidth": 60,
+  "singleQuote": true,
+  "semi": false,
   "overrides": [
     {
       "files": "*.md",
       "options": {
         "parser": "markdown",
-        "printWidth": 79
+        "printWidth": 59
       }
     }
   ],
